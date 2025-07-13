@@ -135,7 +135,16 @@
   </div>
 <div class="col-12 mb-3">
     <label for="phone" class="form-label">Telefone</label>
-    <input type="phone" name="phone" id="phone_number" placeholder="(xx) xxxxx-xxxx" class="form-control" required />
+    <input
+  type="tel"
+  name="phone"
+  id="phone"
+  class="form-control"
+  placeholder="(55) 99999-9999"
+  pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
+  required
+/>
+
   </div>
 
   <div class="col-12 mb-3">
