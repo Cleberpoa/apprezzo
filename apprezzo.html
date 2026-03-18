@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apprezzo Personalizados – Canecas, Camisetas e Kits</title>
+  <meta name="description" content="Produtos personalizados de alta qualidade. Canecas, camisetas e kits para presentear com estilo e alegria. Entregamos em todo o Brasil!"/>
+  <meta name="keywords" content="produtos personalizados, canecas personalizadas, camisetas personalizadas, kits presente, Porto Alegre, Brasil"/>
+  <meta name="author" content="Apprezzo Personalizados"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://www.apprezzo.com.br"/>
+  <meta property="og:title" content="Apprezzo Personalizados – Produtos com a sua cara"/>
+  <meta property="og:description" content="Canecas, camisetas e kits personalizados. Presenteie com estilo!"/>
+  <meta property="og:image" content="https://www.apprezzo.com.br/images/kits.webp"/>
+  <meta property="og:url" content="https://www.apprezzo.com.br"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="pt_BR"/>
+  <meta property="og:site_name" content="Apprezzo Personalizados"/>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png"/>
+  <link rel="apple-touch-icon" href="images/favicon.png"/>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCJXN8HRR"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EVCJXN8HRR');</script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;0,800;0,900;1,700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    @font-face {
+      font-family: 'MaturaMT';
+      src: url('fonts/maturaMT.woff2') format('woff2'),
+           url('fonts/maturaMT.woff')  format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ── VARIABLES ── */
+    :root {
+      --pink:   #FF4D8D;
+      --orange: #FF7A35;
+      --yellow: #FFD600;
+      --teal:   #00BFA6;
+      --purple: #7C4DFF;
+      --red:    #FF3D57;
+      --green:  #25D366;
+      --white:  #FFFFFF;
+      --bg:     #FFF5F9;
+      --text:   #1A1A2E;
+      --mid:    #555570;
+      --dim:    #9898B0;
+      --border: #F0E6EE;
+      --sw:     260px;        /* sidebar width */
+      --tbh:    54px;         /* topbar height mobile */
+      --fh: 'Nunito', sans-serif;
+      --fb: 'Poppins', sans-serif;
+      --r: 14px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--fb); background: var(--bg); color: var(--text); display: flex; min-height: 100vh; overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ── SCROLL LOCK (iOS compatible) ── */
+    body.sb-open {
+      overflow: hidden;
+      /* iOS Safari: position fixed prevents rubber-band scroll of background */
+      position: fixed;
+      width: 100%;
+      /* left is set dynamically via JS to preserve scroll position */
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: var(--sw);
+      background: var(--white);
+      border-right: 2px solid var(--border);
+      display: flex; flex-direction: column;
+      position: fixed; top: 0; left: 0; bottom: 0;
+      z-index: 200; overflow-y: auto;
+      transition: transform .32s cubic-bezier(.4,0,.2,1);
+      /* iOS: allow sidebar itself to scroll independently */
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .sb-rainbow { height: 5px; background: linear-gradient(90deg,var(--pink),var(--orange),var(--yellow),var(--teal),var(--purple)); flex-shrink: 0; }
+
+    .sb-logo { padding: 22px 22px 16px; border-bottom: 2px solid var(--border); }
+    .logo-name { font-family: 'MaturaMT', var(--fh); font-size: 2.2rem; font-weight: normal; line-height: 1; background: linear-gradient(135deg,var(--pink),var(--orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: .03em; }
+    .logo-sub { font-size: .58rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--dim); margin-top: 4px; text-align: center; }
+
+    .sb-tagline { padding: 13px 22px; font-family: var(--fh); font-style: italic; font-size: .9rem; color: var(--mid); border-bottom: 2px solid var(--border); line-height: 1.5; }
+
+    .sb-nav { padding: 14px 0; flex: 1; }
+    .nav-lbl { padding: 10px 22px 3px; font-size: .6rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); }
+
+    .sb-nav a {
+      display: flex; align-items: center; gap: 11px;
+      padding: 10px 22px; font-size: .8rem; font-weight: 600; color: var(--mid);
+      transition: all .2s;
+    }
+    .nico { width: 32px; height: 32px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: .85rem; flex-shrink: 0; transition: all .2s; }
+
+    .ni1 { background: #FFE9F3; color: var(--pink); }
+    .ni2 { background: #FFF0E6; color: var(--orange); }
+    .ni3 { background: #E8F5E9; color: var(--teal); }
+    .ni4 { background: #EDE7F6; color: var(--purple); }
+    .ni5 { background: #FFF3E0; color: var(--orange); }
+    .ni6 { background: #E8F5E9; color: var(--teal); }
+    .ni7 { background: #FFE9F3; color: var(--pink); }
+
+    .sb-nav a:hover, .sb-nav a.active { color: var(--text); background: var(--bg); }
+    .sb-nav a:hover .ni1, .sb-nav a.active .ni1 { background: var(--pink); color: #fff; }
+    .sb-nav a:hover .ni2, .sb-nav a.active .ni2 { background: var(--orange); color: #fff; }
+    .sb-nav a:hover .ni3, .sb-nav a.active .ni3 { background: var(--teal); color: #fff; }
+    .sb-nav a:hover .ni4, .sb-nav a.active .ni4 { background: var(--purple); color: #fff; }
+    .sb-nav a:hover .ni5, .sb-nav a.active .ni5 { background: var(--orange); color: #fff; }
+    .sb-nav a:hover .ni6, .sb-nav a.active .ni6 { background: var(--teal); color: #fff; }
+    .sb-nav a:hover .ni7, .sb-nav a.active .ni7 { background: var(--pink); color: #fff; }
+
+    .nav-div { height: 2px; background: var(--border); margin: 6px 0; }
+
+    .sb-bottom { padding: 16px 22px; border-top: 2px solid var(--border); }
+    .sb-contact a { display: flex; align-items: center; gap: 9px; font-size: .74rem; color: var(--mid); margin-bottom: 8px; transition: color .2s; }
+    .sb-contact a:hover { color: var(--pink); }
+    .sb-social { display: flex; gap: 8px; margin-top: 13px; }
+    .sb-social a { width: 33px; height: 33px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: .8rem; color: var(--dim); transition: all .2s; }
+    .ss-ig:hover { background: #E1306C; border-color: #E1306C; color: #fff; }
+    .ss-fb:hover { background: #1877F2; border-color: #1877F2; color: #fff; }
+    .ss-wa:hover { background: var(--green); border-color: var(--green); color: #fff; }
+
+    /* ── OVERLAY ── */
+    .sb-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 190; }
+    .sb-overlay.show { display: block; }
+
+    /* ── MAIN ── */
+    .main { margin-left: var(--sw); flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+
+    /* ── TOPBAR MOBILE ── */
+    .topbar { display: none; align-items: center; justify-content: space-between; padding: 0 18px; height: var(--tbh); background: var(--white); border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 300; flex-shrink: 0; }
+    .topbar-logo { font-family: 'MaturaMT', var(--fh); font-size: 1.6rem; font-weight: normal; background: linear-gradient(135deg,var(--pink),var(--orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: .03em; }
+    .hamburger { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .hamburger span { display: block; width: 24px; height: 2.5px; background: var(--text); border-radius: 2px; transition: all .3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    /* ── SECTION HEADERS ── */
+    .sec-eye { font-size: .65rem; letter-spacing: .22em; text-transform: uppercase; font-weight: 700; margin-bottom: 3px; }
+    .sec-ttl { font-family: var(--fh); font-size: clamp(1.4rem,2.5vw,1.9rem); font-weight: 900; color: var(--text); margin-bottom: 18px; }
+
+    /* ══════════════════════════════════════
+       SLIDER
+    ══════════════════════════════════════ */
+    .slider {
+  position: relative;
+  height: clamp(280px, 46vw, 520px);
+  overflow: hidden;
+  background: var(--text);
+}
+
+.slide { 
+  position: absolute; 
+  inset: 0; 
+  opacity: 0; 
+  transition: opacity .9s ease; 
+}
+.slide.active { opacity: 1; }
+
+.slide-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.06);
+  transition: transform 7s ease;
+}
+.slide.active .slide-bg { transform: scale(1); }
+
+/* 🔥 OVERLAY SUAVIZADO (CORREÇÃO DO "RISCO") */
+.slide-ov {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.85) 0%,
+    rgba(0,0,0,0.75) 20%,
+    rgba(0,0,0,0.65) 35%,
+    rgba(0,0,0,0.45) 50%,
+    rgba(0,0,0,0.25) 65%,
+    rgba(0,0,0,0.08) 80%,
+    transparent 100%
+  );
+
+  }
+
+/* 🔥 Bloco de leitura */
+.slide-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 34px 48px;
+  z-index: 2;
+
+  max-width: 520px;
+
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.25),
+    transparent
+  );
+
+  border-radius: 12px;
+}
+
+.slide-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,.18);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255,255,255,.35);
+  color: #fff;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: 5px 13px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+
+  text-shadow: 1px 1px 4px rgba(0,0,0,.6);
+  box-shadow: 0 4px 12px rgba(0,0,0,.25);
+}
+
+.slide-title {
+  font-family: var(--fh);
+  font-size: clamp(1.6rem,3.2vw,2.6rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 8px;
+
+  text-shadow:
+    0 2px 4px rgba(0,0,0,.9),
+    0 6px 18px rgba(0,0,0,.8);
+}
+
+.slide-title em {
+  font-style: italic;
+  color: var(--yellow);
+
+  text-shadow:
+    1px 1px 6px rgba(0,0,0,.6),
+    0 0 8px rgba(255,255,255,.3);
+}
+
+.slide-desc {
+  color: rgba(255,255,255,.9);
+  font-size: .86rem;
+  margin-bottom: 18px;
+
+  text-shadow: 1px 1px 6px rgba(0,0,0,.7);
+}
+
+.slide-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  background: rgba(255, 255, 255, 0.90);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  font-family: var(--fh);
+  font-weight: 900;
+  font-size: .82rem;
+  padding: 10px 20px;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.18);
+  transition: all .2s;
+}
+
+.slide-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  background: rgba(255, 255, 255, 0.70);
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 16px;
+  right: 18px;
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+
+.sdot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.35);
+  border: none;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.sdot.active { 
+  width: 26px; 
+  background: #fff; 
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255,255,255,.2);
+  border: 1.5px solid rgba(255,255,255,.45);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: .9rem;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all .2s;
+}
+
+.slider-arrow:hover {
+  background: rgba(255,255,255,.38);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-arrow.prev { left: 14px; }
+.slider-arrow.next { right: 14px; }
+
+@media (max-width: 900px) {
+  .slider-arrow {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* 📱 MOBILE AJUSTADO */
+@media (max-width: 900px) {
+
+ .slide-ov {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to right,
+   rgba(0,0,0,0.85) 0%,
+    rgba(0,0,0,0.75) 20%,
+    rgba(0,0,0,0.65) 35%,
+    rgba(0,0,0,0.45) 50%,
+    rgba(0,0,0,0.25) 65%,
+    rgba(0,0,0,0.08) 80%,
+    transparent 100%
+  );
+}
+	.slide-ov::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  /* 🎯 textura anti-banding */
+  background-image: repeating-radial-gradient(
+    circle at 0 0,
+    rgba(255,255,255,0.03) 0px,
+    rgba(255,255,255,0.03) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+
+  opacity: 0.4;
+  pointer-events: none;
+}
+  }
+
+  .slide-body {
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.75) 0%,
+      rgba(0,0,0,0.6) 50%,
+      transparent 100%
+    );
+    max-width: 100%;
+    padding: 20px;
+  }
+
+}
+    /* ══════════════════════════════════════
+       PRODUTOS
+    ══════════════════════════════════════ */
+  
+    .filter-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 22px; }
+    .filters { display: flex; gap: 7px; flex-wrap: wrap; }
+    .fbtn { font-size: .7rem; font-weight: 600; padding: 7px 15px; border-radius: 999px; border: 2px solid var(--border); background: transparent; color: var(--mid); cursor: pointer; transition: all .2s; }
+    .fbtn:hover { border-color: var(--pink); color: var(--pink); }
+    .fbtn.active { background: var(--pink); border-color: var(--pink); color: #fff; }
+
+    .pgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+
+    .pcard { background: var(--white); border-radius: var(--r); overflow: hidden; border: 2px solid var(--border); transition: all .3s; cursor: default; }
+    .pcard:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(255,77,141,.18); border-color: var(--pink); }
+
+    .pimg { position: relative; overflow: hidden; aspect-ratio: 1/1; background: var(--bg); }
+    .pimg img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .pcard:hover .pimg img { transform: scale(1.08); }
+
+    .pbadge { position: absolute; top: 10px; left: 10px; font-size: .62rem; font-weight: 700; padding: 4px 11px; border-radius: 999px; color: #fff; }
+    .bp { background: var(--pink); } .bo { background: var(--orange); } .bt { background: var(--teal); } .bv { background: var(--purple); }
+
+    .pov { position: absolute; inset: 0; background: rgba(26,26,46,.55); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .3s; }
+    .pcard:hover .pov { opacity: 1; }
+    .pov-btn { display: flex; align-items: center; gap: 7px; background: #fff; color: var(--text); font-family: var(--fh); font-size: .75rem; font-weight: 800; padding: 9px 19px; border-radius: 999px; cursor: pointer; border: none; transition: all .2s; }
+    .pov-btn:hover { background: var(--pink); color: #fff; }
+
+    .pinfo { padding: 13px 15px 15px; }
+    .pname { font-family: var(--fh); font-size: 1rem; font-weight: 800; color: var(--text); margin-bottom: 2px; }
+    .pdesc { font-size: .72rem; color: var(--dim); margin-bottom: 10px; }
+    .pfoot { display: flex; align-items: center; justify-content: space-between; }
+    .pprice { font-family: var(--fh); font-size: 1.2rem; font-weight: 900; color: var(--pink); }
+    .pprice small { font-size: .65rem; font-weight: 400; font-family: var(--fb); color: var(--dim); }
+    .pwa { display: flex; align-items: center; gap: 6px; background: var(--green); color: #fff; font-size: .7rem; font-weight: 600; padding: 7px 13px; border-radius: 999px; transition: all .2s; }
+    .pwa:hover { background: #1fb85a; transform: scale(1.05); }
+
+    /* ══════════════════════════════════════
+       PROMOÇÕES
+    ══════════════════════════════════════ */
+    #promocoes { padding: 0 30px 48px; }
+
+    .promo-hero { position: relative; height: clamp(160px, 22vw, 260px); overflow: hidden; border-radius: var(--r); margin-bottom: 28px; }
+    .promo-hero-bg { position: absolute; inset: 0; background-image: url('images/desconto.webp'); background-size: cover; background-position: center; }
+    .promo-hero-ov { position: absolute; inset: 0; background: linear-gradient(to top, rgba(255,61,87,.75) 0%, rgba(255,122,53,.3) 60%, transparent 100%); }
+    .promo-hero-body { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 24px; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,.22); backdrop-filter: blur(8px); border: 1.5px solid rgba(255,255,255,.4); color: #fff; font-size: .65rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; padding: 5px 13px; border-radius: 999px; margin-bottom: 8px; }
+    .hero-title { font-family: var(--fh); font-size: clamp(1.4rem,3vw,2rem); font-weight: 900; color: #fff; line-height: 1.1; }
+    .hero-title em { font-style: italic; color: var(--yellow); }
+
+    .cd-bar { background: linear-gradient(90deg,var(--red),#c0392b); color: #fff; padding: 12px 18px; border-radius: var(--r); display: flex; align-items: center; gap: 13px; margin-bottom: 28px; flex-wrap: wrap; }
+    .cd-bar i { font-size: 1.1rem; }
+    .cd-bar strong { font-family: var(--fh); font-size: .95rem; font-weight: 900; }
+    .cd-boxes { display: flex; gap: 7px; margin-left: auto; }
+    .cd-box { background: rgba(255,255,255,.18); border-radius: 9px; padding: 5px 10px; text-align: center; min-width: 46px; }
+    .cd-num { font-family: var(--fh); font-size: 1.3rem; font-weight: 900; line-height: 1; }
+    .cd-lbl { font-size: .52rem; letter-spacing: .1em; text-transform: uppercase; opacity: .8; }
+
+    .promo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .promo-card { background: var(--white); border-radius: var(--r); overflow: hidden; border: 2px solid var(--border); transition: all .3s; }
+    .promo-card:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(255,77,141,.18); border-color: var(--pink); }
+    .promo-img { position: relative; overflow: hidden; aspect-ratio: 1/1; background: var(--bg); }
+    .promo-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .promo-card:hover .promo-img img { transform: scale(1.08); }
+    .dtag { position: absolute; top: 10px; right: 10px; background: var(--red); color: #fff; font-family: var(--fh); font-size: .78rem; font-weight: 900; padding: 5px 10px; border-radius: 9px; }
+    .promo-info { padding: 13px 14px 15px; }
+    .promo-name { font-family: var(--fh); font-size: 1rem; font-weight: 800; color: var(--text); margin-bottom: 2px; }
+    .promo-desc { font-size: .72rem; color: var(--dim); margin-bottom: 9px; }
+    .prices { display: flex; align-items: baseline; gap: 9px; margin-bottom: 11px; }
+    .p-old { font-size: .78rem; color: var(--dim); text-decoration: line-through; }
+    .p-new { font-family: var(--fh); font-size: 1.25rem; font-weight: 900; color: var(--red); }
+    .p-new small { font-size: .62rem; font-weight: 400; font-family: var(--fb); }
+    .pbtn { display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--green); color: #fff; font-family: var(--fh); font-size: .8rem; font-weight: 800; padding: 10px; border-radius: 10px; transition: all .2s; width: 100%; }
+    .pbtn:hover { background: #1fb85a; transform: scale(1.02); }
+
+    /* ══════════════════════════════════════
+       KITS
+    ══════════════════════════════════════ */
+    #kits { padding: 0 30px 48px; }
+
+    .kits-hero { position: relative; height: clamp(160px, 22vw, 260px); overflow: hidden; border-radius: var(--r); margin-bottom: 28px; }
+    .kits-hero-bg { position: absolute; inset: 0; background-image: url('images/kits.webp'); background-size: cover; background-position: center; }
+    .kits-hero-ov { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,191,166,.75) 0%, rgba(255,214,0,.2) 60%, transparent 100%); }
+    .kits-hero-body { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 24px; }
+
+    .steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 13px; margin-bottom: 28px; }
+    .step { background: var(--white); border-radius: var(--r); padding: 16px 12px; text-align: center; border: 2px solid var(--border); transition: all .3s; }
+    .step:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(255,77,141,.1); }
+    .step-n { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--fh); font-size: 1.1rem; font-weight: 900; color: #fff; margin: 0 auto 9px; }
+    .sn1 { background: linear-gradient(135deg,var(--pink),#FF85B1); }
+    .sn2 { background: linear-gradient(135deg,var(--orange),var(--yellow)); }
+    .sn3 { background: linear-gradient(135deg,var(--teal),#00E5CC); }
+    .sn4 { background: linear-gradient(135deg,var(--purple),#B388FF); }
+    .step h4 { font-family: var(--fh); font-size: .88rem; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+    .step p { font-size: .7rem; color: var(--mid); }
+
+    .kgrid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+    .kcard { background: var(--white); border-radius: var(--r); border: 2px solid var(--border); overflow: hidden; transition: all .35s; }
+    .kcard:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(255,77,141,.18); border-color: var(--pink); }
+    .kimg-wrap { position: relative; overflow: hidden; }
+    .kimg { width: 100%; height: 190px; object-fit: cover; transition: transform .5s; }
+    .kcard:hover .kimg { transform: scale(1.05); }
+    .kbadge { position: absolute; top: 11px; left: 11px; font-family: var(--fh); font-size: .72rem; font-weight: 900; padding: 4px 12px; border-radius: 999px; color: #fff; }
+    .kb1 { background: linear-gradient(135deg,var(--pink),#FF85B1); }
+    .kb2 { background: linear-gradient(135deg,var(--orange),var(--yellow)); }
+    .kb3 { background: linear-gradient(135deg,var(--teal),#00E5CC); }
+    .kb4 { background: linear-gradient(135deg,var(--purple),#B388FF); }
+    .kbody { padding: 17px 20px; }
+    .kname { font-family: var(--fh); font-size: 1.2rem; font-weight: 900; color: var(--text); margin-bottom: 4px; }
+    .kdesc { font-size: .78rem; color: var(--mid); margin-bottom: 12px; line-height: 1.6; }
+    .kinc h5 { font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); font-weight: 700; margin-bottom: 7px; }
+    .kinc li { display: flex; align-items: center; gap: 7px; font-size: .76rem; color: var(--mid); margin-bottom: 4px; }
+    .kinc li i { color: var(--teal); font-size: .68rem; }
+    .kfoot { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-top: 12px; border-top: 2px solid var(--border); margin-top: 12px; }
+    .kprice-lbl { font-size: .6rem; color: var(--dim); margin-bottom: 1px; }
+    .kprice { font-family: var(--fh); font-size: 1.35rem; font-weight: 900; color: var(--pink); }
+    .kprice small { font-size: .62rem; font-weight: 400; font-family: var(--fb); color: var(--dim); }
+    .kbtn { display: flex; align-items: center; gap: 7px; background: var(--green); color: #fff; font-family: var(--fh); font-size: .78rem; font-weight: 800; padding: 10px 15px; border-radius: 999px; transition: all .2s; white-space: nowrap; }
+    .kbtn:hover { background: #1fb85a; transform: scale(1.05); }
+
+    .kit-cta { border-radius: var(--r); padding: 28px 24px; margin-top: 24px; background: linear-gradient(135deg,var(--purple),var(--pink) 55%,var(--orange)); position: relative; overflow: hidden; }
+    .kit-cta::before { content: '🎁'; position: absolute; right: 18px; top: 50%; transform: translateY(-50%); font-size: 4rem; opacity: .12; }
+    .kit-cta h3 { font-family: var(--fh); font-size: clamp(1.2rem,2vw,1.5rem); font-weight: 900; color: #fff; line-height: 1.1; }
+    .kit-cta h3 em { font-style: italic; color: var(--yellow); }
+    .kit-cta p { color: rgba(255,255,255,.82); font-size: .8rem; margin: 6px 0 16px; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 9px; background: #fff; color: var(--pink); font-family: var(--fh); font-weight: 900; font-size: .86rem; padding: 10px 20px; border-radius: 999px; box-shadow: 0 4px 14px rgba(0,0,0,.15); transition: all .2s; }
+    .cta-btn:hover { transform: translateY(-2px) scale(1.04); }
+
+    /* ══════════════════════════════════════
+       CONTATO
+    ══════════════════════════════════════ */
+    #contato { padding: 0 30px 48px; }
+
+    .contact-hero { padding: 40px 28px 32px; background: linear-gradient(135deg,var(--pink),var(--orange) 50%,var(--yellow)); border-radius: var(--r); margin-bottom: 28px; position: relative; overflow: hidden; }
+    .contact-hero::before { content: '💬'; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-size: 6rem; opacity: .1; line-height: 1; }
+    .chero-eye { font-size: .65rem; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.8); font-weight: 700; margin-bottom: 8px; }
+    .chero-title { font-family: var(--fh); font-size: clamp(1.5rem,3vw,2.2rem); font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 6px; }
+    .chero-title em { font-style: italic; color: rgba(255,255,255,.88); }
+    .chero-sub { color: rgba(255,255,255,.85); font-size: .86rem; max-width: 420px; }
+
+    .qcards { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-bottom: 28px; }
+    .qcard { background: var(--white); border-radius: var(--r); padding: 20px 15px; text-align: center; border: 2px solid var(--border); transition: all .3s; position: relative; overflow: hidden; }
+    .qcard::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; transform: scaleX(0); transition: transform .3s; }
+    .qc-wa::after { background: var(--green); }
+    .qc-em::after { background: var(--pink); }
+    .qc-ig::after { background: linear-gradient(90deg,#E1306C,#F77737); }
+    .qcard:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(255,77,141,.13); }
+    .qcard:hover::after { transform: scaleX(1); }
+    .q-ico { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin: 0 auto 11px; transition: transform .3s; }
+    .qcard:hover .q-ico { transform: scale(1.15) rotate(-5deg); }
+    .qc-wa .q-ico { background: #E8FBF0; color: var(--green); }
+    .qc-em .q-ico { background: #FFE9F3; color: var(--pink); }
+    .qc-ig .q-ico { background: #FFF0F5; color: #E1306C; }
+    .qcard h3 { font-family: var(--fh); font-size: .98rem; font-weight: 900; color: var(--text); margin-bottom: 5px; }
+    .qcard p { font-size: .7rem; color: var(--dim); margin-bottom: 12px; line-height: 1.5; }
+    .q-btn { display: inline-flex; align-items: center; gap: 7px; font-family: var(--fh); font-size: .76rem; font-weight: 800; padding: 8px 16px; border-radius: 999px; color: #fff; transition: all .2s; }
+    .qc-wa .q-btn { background: var(--green); }
+    .qc-wa .q-btn:hover { background: #1fb85a; transform: scale(1.04); }
+    .qc-em .q-btn { background: var(--pink); }
+    .qc-em .q-btn:hover { background: #e03578; transform: scale(1.04); }
+    .qc-ig .q-btn { background: linear-gradient(135deg,#E1306C,#F77737); }
+    .qc-ig .q-btn:hover { opacity: .9; transform: scale(1.04); }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1.55fr; gap: 22px; }
+
+    .info-box { border-radius: var(--r); overflow: hidden; }
+    .info-hdr { background: linear-gradient(135deg,var(--purple),var(--pink)); padding: 22px 20px; position: relative; overflow: hidden; }
+    .info-hdr::before { content: '🌟'; position: absolute; right: 12px; bottom: 8px; font-size: 3rem; opacity: .18; }
+    .info-hdr h3 { font-family: var(--fh); font-size: 1.25rem; font-weight: 900; color: #fff; line-height: 1.1; }
+    .info-hdr h3 em { font-style: italic; color: var(--yellow); }
+    .info-hdr p { color: rgba(255,255,255,.8); font-size: .76rem; margin-top: 4px; }
+    .info-body { background: var(--white); border: 2px solid var(--border); border-top: none; border-radius: 0 0 var(--r) var(--r); padding: 18px; }
+    .info-row { display: flex; align-items: flex-start; gap: 11px; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1.5px solid var(--border); }
+    .info-row:last-of-type { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .i-ico { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: .86rem; flex-shrink: 0; }
+    .ii-wa { background: #E8FBF0; color: var(--green); }
+    .ii-em { background: #FFE9F3; color: var(--pink); }
+    .ii-hr { background: #FFF3E0; color: var(--orange); }
+    .ii-tr { background: #E8F5E9; color: var(--teal); }
+    .info-row h5 { font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); margin-bottom: 2px; }
+    .info-row a, .info-row span { font-size: .8rem; color: var(--mid); display: block; transition: color .2s; }
+    .info-row a:hover { color: var(--pink); }
+    .info-soc { display: flex; gap: 8px; margin-top: 14px; padding-top: 14px; border-top: 1.5px solid var(--border); }
+    .info-soc a { flex: 1; padding: 8px; border-radius: 10px; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; gap: 6px; font-size: .68rem; font-weight: 700; color: var(--mid); transition: all .2s; }
+    .is-ig:hover { background: #E1306C; border-color: #E1306C; color: #fff; }
+    .is-fb:hover { background: #1877F2; border-color: #1877F2; color: #fff; }
+    .is-wa:hover { background: var(--green); border-color: var(--green); color: #fff; }
+
+    .form-box { background: var(--white); border: 2px solid var(--border); border-radius: var(--r); overflow: hidden; }
+    .form-hdr { background: linear-gradient(90deg,var(--pink),var(--orange)); padding: 17px 22px; }
+    .form-hdr h3 { font-family: var(--fh); font-size: 1.2rem; font-weight: 900; color: #fff; }
+    .form-hdr p { color: rgba(255,255,255,.85); font-size: .73rem; margin-top: 3px; }
+    .form-body { padding: 22px; }
+    .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .fg { margin-bottom: 12px; }
+    .fg label { display: block; font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+    .fg input, .fg textarea, .fg select { width: 100%; background: var(--bg); border: 2px solid var(--border); border-radius: 9px; color: var(--text); font-family: var(--fb); font-size: .86rem; padding: 10px 13px; outline: none; transition: border-color .2s, box-shadow .2s; appearance: none; }
+    .fg input:focus, .fg textarea:focus, .fg select:focus { border-color: var(--pink); box-shadow: 0 0 0 3px rgba(255,77,141,.12); }
+    .fg textarea { resize: vertical; min-height: 90px; }
+    .btn-send { width: 100%; background: linear-gradient(135deg,var(--green),#1fb85a); color: #fff; font-family: var(--fh); font-weight: 900; font-size: .9rem; padding: 13px; border-radius: 10px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 14px; transition: all .2s; box-shadow: 0 4px 16px rgba(37,211,102,.3); }
+    .btn-send:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,.5); }
+
+    /* FAQ */
+    .faq-sec { margin-top: 36px; }
+    .faq-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+    .faq-item { background: var(--white); border: 2px solid var(--border); border-radius: var(--r); overflow: hidden; transition: border-color .2s; }
+    .faq-item:hover { border-color: var(--pink); }
+    .faq-q { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 16px; cursor: pointer; font-family: var(--fh); font-size: .94rem; font-weight: 800; color: var(--text); }
+    .faq-ico { width: 26px; height: 26px; border-radius: 50%; background: #FFE9F3; color: var(--pink); display: flex; align-items: center; justify-content: center; font-size: .7rem; flex-shrink: 0; transition: all .3s; }
+    .faq-item.open .faq-ico { background: var(--pink); color: #fff; transform: rotate(45deg); }
+    .faq-a { display: none; padding: 0 16px 14px; font-size: .78rem; color: var(--mid); line-height: 1.7; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    footer { background: var(--text); padding: 26px 30px; margin-top: auto; }
+    .ftr { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .flogo { font-family: 'MaturaMT', var(--fh); font-size: 1.6rem; font-weight: normal; background: linear-gradient(135deg,var(--pink),var(--orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: .03em; }
+    .flogo span { display: block; font-family: var(--fh); font-size: .45rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.3); -webkit-text-fill-color: rgba(255,255,255,.3); background: none; -webkit-background-clip: unset; background-clip: unset; margin-top: 2px;margin-left: 34px; text-align: left; font-style: italic;}
+    .fcopy { font-size: .7rem; color: rgba(255,255,255,.3); margin-top: 3px; }
+    .fcopy a { color: var(--pink); }
+    .fsoc { display: flex; gap: 8px; }
+    .fsoc a { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.12); display: flex; align-items: center; justify-content: center; font-size: .76rem; color: rgba(255,255,255,.4); transition: all .2s; }
+    .fsoc .fi:hover { background: #E1306C; border-color: #E1306C; color: #fff; }
+    .fsoc .ff:hover { background: #1877F2; border-color: #1877F2; color: #fff; }
+    .fsoc .fw:hover { background: var(--green); border-color: var(--green); color: #fff; }
+
+    /* ── FLOAT WA ── */
+    .fwa { position: fixed; bottom: 94px; right: 24px; z-index: 5000; background: var(--green); color: #fff; width: 54px; height: 54px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.45rem; box-shadow: 0 4px 20px rgba(37,211,102,.5); animation: pulse 2.5s infinite; transition: transform .2s; }
+    .fwa:hover { transform: scale(1.12); animation: none; }
+    @keyframes pulse { 0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.45); } 50% { box-shadow: 0 4px 30px rgba(37,211,102,.8); } }
+
+    /* ── LIGHTBOX ── */
+    .lbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 9000; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+    .lbox.open { display: flex; }
+    .lbox-inner { position: relative; }
+    .lbox-inner img { max-width: 82vw; max-height: 82vh; border-radius: 12px; object-fit: contain; }
+    .lbox-close { position: absolute; top: -14px; right: -14px; width: 32px; height: 32px; background: #fff; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: .85rem; transition: background .2s; }
+    .lbox-close:hover { background: var(--pink); color: #fff; }
+
+    /* ── FADE IN ── */
+    .fi { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .fi.vis { opacity: 1; transform: none; }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 1100px) { .pgrid { grid-template-columns: repeat(2,1fr); } .promo-grid { grid-template-columns: repeat(2,1fr); } }
+
+    @media (max-width: 900px) {
+      .sidebar { transform: translateX(-100%); top: var(--tbh); bottom: 0; height: auto; }
+      .sidebar.open { transform: translateX(0); }
+      .main { margin-left: 0; }
+      .topbar { display: flex; }
+    }
+
+    @media (max-width: 700px) {
+      #produtos, #promocoes, #kits, #contato { padding-left: 14px; padding-right: 14px; }
+      .pgrid { grid-template-columns: repeat(2,1fr); gap: 10px; }
+      .promo-grid { grid-template-columns: repeat(2,1fr); }
+      .kgrid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: repeat(2,1fr); }
+      .qcards { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      footer { padding: 22px 16px; }
+    }
+
+    @media (max-width: 420px) {
+      .pgrid { grid-template-columns: 1fr; }
+      .promo-grid { grid-template-columns: 1fr; }
+      .frow { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .cd-boxes { margin-left: 0; width: 100%; justify-content: center; }
+    }
+	  .apprezzo {
+    font-family: 'MaturaMT', serif;
+    letter-spacing: 2px;        /* ← Aumenta o espaço entre as letras */
+	font-size: 30px;	  
+}
+	  /* ══════════════════════════════════════
+   PRODUTOS - ALINHAMENTO CORRIGIDO
+══════════════════════════════════════ */
+#produtos { 
+    padding: 28px 30px 48px; 
+}
+
+#produtos .filter-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 15px;
+}
+
+#produtos .filter-row > div:first-child {
+    flex: 1;
+    min-width: 280px;
+}
+
+/* Garante que o sec-eye e sec-ttl tenham o mesmo estilo das outras seções */
+#produtos .sec-eye {
+    font-size: .65rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 3px;
+    color: var(--pink);
+}
+
+#produtos .sec-ttl {
+    font-family: var(--fh);
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 24px;
+}
+  </style>
+</head>
+<body>
+
+<div class="sb-overlay" id="sbOverlay"></div>
+
+<!-- ═══════════════════════════════════════
+     SIDEBAR
+════════════════════════════════════════ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-rainbow"></div>
+  <div class="sb-logo">
+    <div class="logo-name">Apprezzo</div>
+    <div class="logo-sub" style="font-style: italic";>Personalizados </div>
+  </div>
+  <div class="sb-tagline">✨ "Cada produto conta uma história única."</div>
+  <nav class="sb-nav">
+    <div class="nav-lbl">Menu</div>
+    <a href="#inicio"><span class="nico ni1"><i class="fa-solid fa-house"></i></span> Início</a>
+    <a href="#produtos"><span class="nico ni2"><i class="fa-solid fa-mug-hot"></i></span> Produtos</a>
+    <a href="#promocoes"><span class="nico ni3"><i class="fa-solid fa-tag"></i></span> Promoções</a>
+    <a href="#kits"><span class="nico ni4"><i class="fa-solid fa-gift"></i></span> Kits</a>
+    <a href="#contato"><span class="nico ni7"><i class="fa-solid fa-envelope"></i></span> Contato</a>
+    <div class="nav-div"></div>
+    <div class="nav-lbl">Categorias</div>
+    <a href="#" data-cat="canecas"><span class="nico ni5"><i class="fa-solid fa-mug-hot"></i></span> Canecas</a>
+    <a href="#" data-cat="camisetas"><span class="nico ni6"><i class="fa-solid fa-shirt"></i></span> Camisetas</a>
+    <a href="#" data-cat="impressos"><span class="nico ni4"><i class="fa-solid fa-print"></i></span> Impressos</a>
+  </nav>
+  <div class="sb-bottom">
+     <div class="sb-contact">
+      <a href="https://api.whatsapp.com/send?phone=5551981710049" target="_blank"><i class="fa-brands fa-whatsapp" style="color:var(--green)"></i> (51) 98171-0049</a>
+      <a href="mailto:atendimento@apprezzo.com.br"><i class="fa-solid fa-envelope" style="color:var(--pink)"></i> atendimento@apprezzo.com.br</a>
+    </div>
+    <div class="sb-social">
+      <a href="https://www.instagram.com/apprezzo_personalizados/" target="_blank" class="ss-ig"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="ss-fb"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://api.whatsapp.com/send?phone=5551981710049" target="_blank" class="ss-wa"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+  </div>
+</aside>
+
+<!-- ═══════════════════════════════════════
+     MAIN
+════════════════════════════════════════ -->
+<div class="main">
+
+  <!-- Topbar mobile -->
+  <div class="topbar" id="topbar">
+	  <div class="topbar-logo"><a href="#">Apprezzo</a></div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+
+  <!-- ══ SLIDER ══ -->
+  <div class="slider" id="inicio">
+    <div class="slide active">
+      <div class="slide-bg" style="background-image:url('images/kits.webp')"></div>
+      <div class="slide-ov"></div>
+      <div class="slide-body">
+        <div class="slide-tag"><i class="fa-solid fa-gift"></i> Novidade</div>
+        <h2 class="slide-title">Kits <em>personalizados</em><br>para cada momento!</h2>
+        <p class="slide-desc">Combinações exclusivas para presentear com carinho e estilo</p>
+        <a href="#kits" class="slide-btn" style="color:var(--pink)"><i class="fa-solid fa-gift"></i> Ver Kits</a>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-bg" style="background-image:url('images/desconto.webp')"></div>
+      <div class="slide-ov"></div>
+      <div class="slide-body">
+        <div class="slide-tag"><i class="fa-solid fa-fire"></i> Promoção</div>
+        <h2 class="slide-title">Descontos <em>incríveis</em><br>esta semana!</h2>
+        <p class="slide-desc">Aproveite ofertas especiais em produtos selecionados</p>
+        <a href="#promocoes" class="slide-btn" style="color:var(--purple)"><i class="fa-solid fa-tag"></i> Ver Promoções</a>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-bg" style="background-image:url('images/modelos.webp')"></div>
+      <div class="slide-ov"></div>
+      <div class="slide-body">
+        <div class="slide-tag"><i class="fa-solid fa-palette"></i> Variedade</div>
+        <h2 class="slide-title">Centenas de <em>modelos</em><br>esperando por você!</h2>
+        <p class="slide-desc">Escolha, personalize e receba onde estiver</p>
+        <a href="#contato" class="slide-btn" style="color:var(--teal)"><i class="fa-solid fa-palette"></i> Personalizar Agora</a>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-bg" style="background-image:url('images/cafe.webp')"></div>
+      <div class="slide-ov"></div>
+      <div class="slide-body">
+        <div class="slide-tag"><i class="fa-solid fa-mug-hot"></i> Exclusivo</div>
+        <h2 class="slide-title">Canecas que <em>encantam</em><br>a cada gole! ☕</h2>
+        <p class="slide-desc">Seu design favorito em cerâmica de alta qualidade</p>
+        <a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20uma%20caneca%20personalizada!" target="_blank" class="slide-btn" style="color:var(--orange)"><i class="fa-brands fa-whatsapp"></i> Pedir Agora</a>
+      </div>
+    </div>
+    <button class="slider-arrow prev" id="sliderPrev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="slider-arrow next" id="sliderNext" aria-label="Próximo"><i class="fa-solid fa-chevron-right"></i></button>
+    <div class="slider-dots">
+      <button class="sdot active" data-i="0"></button>
+      <button class="sdot" data-i="1"></button>
+      <button class="sdot" data-i="2"></button>
+      <button class="sdot" data-i="3"></button>
+    </div>
+  </div>
+
+  <!-- ══ PRODUTOS ══ -->
+  <section id="produtos">
+    <div class="filter-row">
+      <div>
+        <div class="sec-eye" style="color:var(--pink)">✨ Coleção Completa</div>
+        <h2 class="sec-ttl">Nossos produtos 🎨</h2>
+      </div>
+      <div class="filters">
+        <button class="fbtn active" data-f="all">Todos</button>
+        <button class="fbtn" data-f="canecas">🍵 Canecas</button>
+        <button class="fbtn" data-f="camisetas">👕 Camisetas</button>
+        <button class="fbtn" data-f="impressos">🖨️ Impressos</button>
+      </div>
+    </div>
+
+    <div class="pgrid" id="pgrid">
+
+      <div class="pcard fi" data-cat="canecas">
+        <div class="pimg"><img src="images/caneca_branca.webp" alt="Caneca Cerâmica" loading="lazy"/><span class="pbadge bp">Popular ⭐</span><div class="pov"><button class="pov-btn" onclick="openLB('images/caneca_branca.webp')"><i class="fa-solid fa-expand"></i> Ver</button></div></div>
+        <div class="pinfo"><div class="pname">Caneca Cerâmica</div><div class="pdesc">325ml · Personalização frente e verso</div><div class="pfoot"><div class="pprice">R$ 35<small>,00</small></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20Caneca%20Cerâmica!" target="_blank" class="pwa"><i class="fa-brands fa-whatsapp"></i> Pedir</a></div></div>
+      </div>
+
+      <div class="pcard fi" data-cat="canecas">
+        <div class="pimg"><img src="images/caneca_aluminio_times.webp" alt="Caneca Alumínio" loading="lazy"/><div class="pov"><button class="pov-btn" onclick="openLB('images/caneca_aluminio_times.webp')"><i class="fa-solid fa-expand"></i> Ver</button></div></div>
+        <div class="pinfo"><div class="pname">Caneca de Alumínio</div><div class="pdesc">Leve e resistente · Times e personagens</div><div class="pfoot"><div class="pprice">R$ 35<small>,00</small></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20Caneca%20Alumínio!" target="_blank" class="pwa"><i class="fa-brands fa-whatsapp"></i> Pedir</a></div></div>
+      </div>
+
+      <div class="pcard fi" data-cat="canecas">
+        <div class="pimg"><img src="images/caneca-interno-e-alca-colorida.webp" alt="Caneca Interior Colorida" loading="lazy"/><span class="pbadge bt">Colorida 🌈</span><div class="pov"><button class="pov-btn" onclick="openLB('images/caneca-interno-e-alca-colorida.webp')"><i class="fa-solid fa-expand"></i> Ver</button></div></div>
+        <div class="pinfo"><div class="pname">Caneca Interior Colorida</div><div class="pdesc">Interior e alça coloridos · Várias cores</div><div class="pfoot"><div class="pprice">R$ 44<small>,90</small></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20Caneca%20Interior%20Colorida!" target="_blank" class="pwa"><i class="fa-brands fa-whatsapp"></i> Pedir</a></div></div>
+      </div>
+
+      <div class="pcard fi" data-cat="canecas">
+        <div class="pimg"><img src="images/caneca-com-colher.webp" alt="Caneca com Colher" loading="lazy"/><div class="pov"><button class="pov-btn" onclick="openLB('images/caneca-com-colher.webp')"><i class="fa-solid fa-expand"></i> Ver</button></div></div>
+        <div class="pinfo"><div class="pname">Caneca com Colher</div><div class="pdesc">Colher personalizada inclusa 🥄</div><div class="pfoot"><div class="pprice">R$ 49<small>,90</small></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20Caneca%20com%20Colher!" target="_blank" class="pwa"><i class="fa-brands fa-whatsapp"></i> Pedir</a></div></div>
+      </div>
+
+      <div class="pcard fi" data-cat="canecas">
+        <div class="pimg"><img src="images/caneca-magica.webp" alt="Caneca Mágica" loading="lazy"/><span class="pbadge bv">Mágica ✨</span><div class="pov"><button class="pov-btn" onclick="openLB('images/caneca-magica.webp')"><i class="fa-solid fa-expand"></i> Ver</button></div></div>
+        <div class="pinfo"><div class="pname">Caneca Mágica</div><div class="pdesc">Revela imagem com calor da bebida 🔥</div><div class="pfoot"><div class="pprice">R$ 49<small>,90</small></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20Caneca%20Mágica!" target="_blank" class="pwa"><i class="fa-brands fa-whatsapp"></i> Pedir</a></div></div>
+      </div>
+
+      <div class="pcard fi" data-cat="canecas">
+        <div class="pimg"><img src="images/jateada.webp" alt="Caneca Jateada" loading="lazy"/><div class="pov"><button class="pov-btn" onclick="openLB('images/jateada.webp')"><i class="fa-solid fa-expand"></i> Ver</button></div></div>
+        <div class="pinfo"><div class="pname">Caneca Jateada</div><div class="pdesc">Acabamento fosco elegante</div><div class="pfoot"><div class="pprice">R$ 39<small>,90</small></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20Caneca%20Jateada!" target="_blank" class="pwa"><i class="fa-brands fa-whatsapp"></i> Pedir</a></div></div>
+      </div>
+
+      <div class="pcard fi" data-cat="canecas">
+        <div class="pimg"><img src="images/canecas_alca_coracao.webp" alt="Caneca Alça Coração" loading="lazy"/><span class="pbadge bp">Romântica 💕</span><div class="pov"><button class="pov-btn" onclick="openLB('images/canecas_alca_coracao.webp')"><i class="fa-solid fa-expand"></i> Ver</button></div></div>
+        <div class="pinfo"><div class="pname">Caneca Alça Coração</div><div class="pdesc">Alça em formato de coração colorida</div><div class="pfoot"><div class="pprice">R$ 44<small>,90</small></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20Caneca%20Alça%20Coração!" target="_blank" class="pwa"><i class="fa-brands fa-whatsapp"></i> Pedir</a></div></div>
+      </div>
+
+      <div class="pcard fi" data-cat="canecas">
+        <div class="pimg"><img src="images/xicaras.webp" alt="Conjunto Xícaras" loading="lazy"/><div class="pov"><button class="pov-btn" onclick="openLB('images/xicaras.webp')"><i class="fa-solid fa-expand"></i> Ver</button></div></div>
+        <div class="pinfo"><div class="pname">Conjunto de Xícaras</div><div class="pdesc">Kit com 6 xícaras personalizadas ☕</div><div class="pfoot"><div class="pprice">R$ 119<small>,90</small></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20Conjunto%20de%20Xícaras!" target="_blank" class="pwa"><i class="fa-brands fa-whatsapp"></i> Pedir</a></div></div>
+      </div>
+
+      <div class="pcard fi" data-cat="canecas">
+        <div class="pimg"><img src="images/squeeze_de_aluminio.webp" alt="Squeeze de Alumínio" loading="lazy"/><span class="pbadge bt">Fitness 💪</span><div class="pov"><button class="pov-btn" onclick="openLB('images/squeeze_de_aluminio.webp')"><i class="fa-solid fa-expand"></i> Ver</button></div></div>
+        <div class="pinfo"><div class="pname">Squeeze de Alumínio</div><div class="pdesc">500ml · Ideal para esportes e academia</div><div class="pfoot"><div class="pprice">R$ 49<small>,90</small></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20Squeeze%20de%20Alumínio!" target="_blank" class="pwa"><i class="fa-brands fa-whatsapp"></i> Pedir</a></div></div>
+      </div>
+
+      <!-- ── CAMISETAS ── -->
+      <div class="pcard fi" data-cat="camisetas">
+        <div class="pimg"><img src="images/camiseta_basica.webp" alt="Camiseta Básica" loading="lazy" onerror="this.src='https://placehold.co/400x400/FFE9F3/FF4D8D?text=Camiseta+Basica'"/><span class="pbadge bp">Clássica 👕</span><div class="pov"><button class="pov-btn" onclick="openLB('images/camiseta_basica.webp')"><i class="fa-solid fa-expand"></i> Ver</button></div></div>
+        <div class="pinfo"><div class="pname">Camiseta Básica</div><div class="pdesc">100% algodão · Personalização frente e costas</div><div class="pfoot"><div class="pprice">R$ 49<small>,90</small></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20Camiseta%20Básica!" target="_blank" class="pwa"><i class="fa-brands fa-whatsapp"></i> Pedir</a></div></div>
+      </div>
+
+      <div class="pcard fi" data-cat="camisetas">
+        <div class="pimg"><img src="images/camiseta_polo.webp" alt="Camiseta Polo" loading="lazy" onerror="this.src='https://placehold.co/400x400/E0F7FA/00BFA6?text=Camiseta+Polo'"/><span class="pbadge bt">Elegante ✨</span><div class="pov"><button class="pov-btn" onclick="openLB('images/camiseta_polo.webp')"><i class="fa-solid fa-expand"></i> Ver</button></div></div>
+        <div class="pinfo"><div class="pname">Camiseta Polo</div><div class="pdesc">Malha premium · Bordado ou silk screen</div><div class="pfoot"><div class="pprice">R$ 69<small>,90</small></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20Camiseta%20Polo!" target="_blank" class="pwa"><i class="fa-brands fa-whatsapp"></i> Pedir</a></div></div>
+      </div>
+
+      <div class="pcard fi" data-cat="camisetas">
+        <div class="pimg"><img src="images/camiseta_infantil.webp" alt="Camiseta Infantil" loading="lazy" onerror="this.src='https://placehold.co/400x400/FFF3E0/FF7A35?text=Camiseta+Infantil'"/><span class="pbadge bo">Infantil 🌟</span><div class="pov"><button class="pov-btn" onclick="openLB('images/camiseta_infantil.webp')"><i class="fa-solid fa-expand"></i> Ver</button></div></div>
+        <div class="pinfo"><div class="pname">Camiseta Infantil</div><div class="pdesc">Do 2 ao 16 · Tecido macio e lavável</div><div class="pfoot"><div class="pprice">R$ 39<small>,90</small></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20Camiseta%20Infantil!" target="_blank" class="pwa"><i class="fa-brands fa-whatsapp"></i> Pedir</a></div></div>
+      </div>
+
+      <!-- ── IMPRESSOS ── -->
+      <div class="pcard fi" data-cat="impressos">
+        <div class="pimg"><img src="images/cartao_visita.webp" alt="Cartão de Visita" loading="lazy" onerror="this.src='https://placehold.co/400x400/EDE7F6/7C4DFF?text=Cartao+de+Visita'"/><span class="pbadge bv">Popular 🖨️</span><div class="pov"><button class="pov-btn" onclick="openLB('images/cartao_visita.webp')"><i class="fa-solid fa-expand"></i> Ver</button></div></div>
+        <div class="pinfo"><div class="pname">Cartão de Visita</div><div class="pdesc">Papel couchê · Frente e verso colorido</div><div class="pfoot"><div class="pprice">R$ 29<small>,90</small></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20Cartão%20de%20Visita!" target="_blank" class="pwa"><i class="fa-brands fa-whatsapp"></i> Pedir</a></div></div>
+      </div>
+
+      <div class="pcard fi" data-cat="impressos">
+        <div class="pimg"><img src="images/flyer.webp" alt="Flyer Panfleto" loading="lazy" onerror="this.src='https://placehold.co/400x400/E8F5E9/00BFA6?text=Flyer+Panfleto'"/><div class="pov"><button class="pov-btn" onclick="openLB('images/flyer.webp')"><i class="fa-solid fa-expand"></i> Ver</button></div></div>
+        <div class="pinfo"><div class="pname">Flyer / Panfleto</div><div class="pdesc">A5 ou A4 · Couchê brilhante ou fosco</div><div class="pfoot"><div class="pprice">R$ 39<small>,90</small></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20Flyer%20Personalizado!" target="_blank" class="pwa"><i class="fa-brands fa-whatsapp"></i> Pedir</a></div></div>
+      </div>
+
+      <div class="pcard fi" data-cat="impressos">
+        <div class="pimg"><img src="images/banner.webp" alt="Banner Personalizado" loading="lazy" onerror="this.src='https://placehold.co/400x400/FFE9F3/FF4D8D?text=Banner'"/><span class="pbadge bp">Destaque 🎯</span><div class="pov"><button class="pov-btn" onclick="openLB('images/banner.webp')"><i class="fa-solid fa-expand"></i> Ver</button></div></div>
+        <div class="pinfo"><div class="pname">Banner</div><div class="pdesc">Lona ou papel · Qualquer tamanho</div><div class="pfoot"><div class="pprice">R$ 59<small>,90</small></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20Banner%20Personalizado!" target="_blank" class="pwa"><i class="fa-brands fa-whatsapp"></i> Pedir</a></div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ PROMOÇÕES ══ -->
+  <section id="promocoes">
+    <div class="promo-hero fi">
+      <div class="promo-hero-bg"></div><div class="promo-hero-ov"></div>
+      <div class="promo-hero-body">
+        <div class="hero-tag"><i class="fa-solid fa-fire"></i> Ofertas Especiais 🔥</div>
+        <h2 class="hero-title">Promoções <em>imperdíveis!</em></h2>
+      </div>
+    </div>
+
+    <div class="cd-bar fi">
+      <i class="fa-solid fa-clock"></i>
+      <div><strong>⚡ Oferta por tempo limitado!</strong><div style="font-size:.75rem;opacity:.85">Encerra em:</div></div>
+      <div class="cd-boxes">
+        <div class="cd-box"><div class="cd-num" id="cdH">00</div><div class="cd-lbl">Horas</div></div>
+        <div class="cd-box"><div class="cd-num" id="cdM">00</div><div class="cd-lbl">Min</div></div>
+        <div class="cd-box"><div class="cd-num" id="cdS">00</div><div class="cd-lbl">Seg</div></div>
+      </div>
+    </div>
+
+    <div class="sec-eye" style="color:var(--pink)">🏷️ Descontos especiais</div>
+    <h2 class="sec-ttl">Aproveite agora! 🎉</h2>
+
+    <div class="promo-grid">
+      <div class="promo-card fi"><div class="promo-img"><img src="images/caneca_branca.webp" alt="" loading="lazy"/><div class="dtag">-20%</div></div><div class="promo-info"><div class="promo-name">Caneca Cerâmica</div><div class="promo-desc">325ml · Personalização frente e verso</div><div class="prices"><span class="p-old">R$ 44,90</span><span class="p-new">R$ 35<small>,00</small></span></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20promo%20Caneca%20Cerâmica!" target="_blank" class="pbtn"><i class="fa-brands fa-whatsapp"></i> Aproveitar!</a></div></div>
+      <div class="promo-card fi"><div class="promo-img"><img src="images/caneca-magica.webp" alt="" loading="lazy"/><div class="dtag">-15%</div></div><div class="promo-info"><div class="promo-name">Caneca Mágica ✨</div><div class="promo-desc">Revela imagem com calor da bebida</div><div class="prices"><span class="p-old">R$ 59,90</span><span class="p-new">R$ 49<small>,90</small></span></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20promo%20Caneca%20Mágica!" target="_blank" class="pbtn"><i class="fa-brands fa-whatsapp"></i> Aproveitar!</a></div></div>
+      <div class="promo-card fi"><div class="promo-img"><img src="images/caneca-com-colher.webp" alt="" loading="lazy"/><div class="dtag">-10%</div></div><div class="promo-info"><div class="promo-name">Caneca com Colher 🥄</div><div class="promo-desc">Colher personalizada inclusa</div><div class="prices"><span class="p-old">R$ 55,90</span><span class="p-new">R$ 49<small>,90</small></span></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20promo%20Caneca%20Colher!" target="_blank" class="pbtn"><i class="fa-brands fa-whatsapp"></i> Aproveitar!</a></div></div>
+      <div class="promo-card fi"><div class="promo-img"><img src="images/canecas_alca_coracao.webp" alt="" loading="lazy"/><div class="dtag">-12%</div></div><div class="promo-info"><div class="promo-name">Caneca Alça Coração 💕</div><div class="promo-desc">Alça em formato de coração</div><div class="prices"><span class="p-old">R$ 51,90</span><span class="p-new">R$ 44<small>,90</small></span></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20promo%20Alça%20Coração!" target="_blank" class="pbtn"><i class="fa-brands fa-whatsapp"></i> Aproveitar!</a></div></div>
+      <div class="promo-card fi"><div class="promo-img"><img src="images/squeeze_de_aluminio.webp" alt="" loading="lazy"/><div class="dtag">-18%</div></div><div class="promo-info"><div class="promo-name">Squeeze Alumínio 💪</div><div class="promo-desc">500ml · Ideal para esportes</div><div class="prices"><span class="p-old">R$ 60,90</span><span class="p-new">R$ 49<small>,90</small></span></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20promo%20Squeeze!" target="_blank" class="pbtn"><i class="fa-brands fa-whatsapp"></i> Aproveitar!</a></div></div>
+      <div class="promo-card fi"><div class="promo-img"><img src="images/xicaras.webp" alt="" loading="lazy"/><div class="dtag">-25%</div></div><div class="promo-info"><div class="promo-name">Conjunto Xícaras ☕</div><div class="promo-desc">Kit com 6 xícaras personalizadas</div><div class="prices"><span class="p-old">R$ 159,90</span><span class="p-new">R$ 119<small>,90</small></span></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20promo%20Xícaras!" target="_blank" class="pbtn"><i class="fa-brands fa-whatsapp"></i> Aproveitar!</a></div></div>
+    </div>
+  </section>
+
+  <!-- ══ KITS ══ -->
+  <section id="kits">
+    <div class="kits-hero fi">
+      <div class="kits-hero-bg"></div><div class="kits-hero-ov"></div>
+      <div class="kits-hero-body">
+        <div class="hero-tag"><i class="fa-solid fa-gift"></i> Presentes Especiais 🎁</div>
+        <h2 class="hero-title">Kits <em>apaixonantes</em><br>para cada momento!</h2>
+      </div>
+    </div>
+
+    <div class="sec-eye" style="color:var(--teal)">🚀 É fácil assim</div>
+    <h2 class="sec-ttl">Monte seu kit em 4 passos! 🎉</h2>
+    <div class="steps">
+      <div class="step fi"><div class="step-n sn1">1</div><h4>Escolha os itens</h4><p>Canecas, camisetas e acessórios</p></div>
+      <div class="step fi"><div class="step-n sn2">2</div><h4>Envie seu design</h4><p>Foto, frase ou logotipo</p></div>
+      <div class="step fi"><div class="step-n sn3">3</div><h4>Aprovação da arte</h4><p>Você confirma antes de produzir</p></div>
+      <div class="step fi"><div class="step-n sn4">4</div><h4>Receba em casa 🏠</h4><p>Embalagem especial para presente</p></div>
+    </div>
+
+    <div class="sec-eye" style="color:var(--teal)">🎁 Kits prontos</div>
+    <h2 class="sec-ttl">Escolha o seu favorito!</h2>
+
+    <div class="kgrid">
+      <div class="kcard fi">
+        <div class="kimg-wrap"><img class="kimg" src="images/caneca_branca.webp" alt="Kit Casal" loading="lazy"/><div class="kbadge kb1">Mais Vendido ⭐</div></div>
+        <div class="kbody"><div class="kname">Kit Casal Apaixonado 💕</div><div class="kdesc">O presente perfeito para celebrar o amor! Duas canecas personalizadas com foto ou frase do casal.</div>
+        <ul class="kinc"><h5>Inclui:</h5><li><i class="fa-solid fa-check"></i> 2 canecas cerâmicas personalizadas</li><li><i class="fa-solid fa-check"></i> Embalagem presente com laço</li><li><i class="fa-solid fa-check"></i> Cartão comemorativo</li><li><i class="fa-solid fa-check"></i> Arte personalizada inclusa</li></ul>
+        <div class="kfoot"><div><div class="kprice-lbl">A partir de</div><div class="kprice">R$ 89<small>,90</small></div></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20o%20Kit%20Casal!" target="_blank" class="kbtn"><i class="fa-brands fa-whatsapp"></i> Pedir!</a></div></div>
+      </div>
+      <div class="kcard fi">
+        <div class="kimg-wrap"><img class="kimg" src="images/caneca-com-colher.webp" alt="Kit Café" loading="lazy"/><div class="kbadge kb2">Presente Ideal ☕</div></div>
+        <div class="kbody"><div class="kname">Kit Café da Manhã ☕</div><div class="kdesc">Para começar o dia com carinho! Caneca com colher personalizada em caixa especial.</div>
+        <ul class="kinc"><h5>Inclui:</h5><li><i class="fa-solid fa-check"></i> 1 caneca cerâmica com colher</li><li><i class="fa-solid fa-check"></i> 1 sachê de café especial</li><li><i class="fa-solid fa-check"></i> Embalagem kraft personalizada</li><li><i class="fa-solid fa-check"></i> Cartão manuscrito opcional</li></ul>
+        <div class="kfoot"><div><div class="kprice-lbl">A partir de</div><div class="kprice">R$ 69<small>,90</small></div></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20o%20Kit%20Café!" target="_blank" class="kbtn"><i class="fa-brands fa-whatsapp"></i> Pedir!</a></div></div>
+      </div>
+      <div class="kcard fi">
+        <div class="kimg-wrap"><img class="kimg" src="images/squeeze_de_aluminio.webp" alt="Kit Fitness" loading="lazy"/><div class="kbadge kb3">Vida Saudável 💪</div></div>
+        <div class="kbody"><div class="kname">Kit Fitness 💪</div><div class="kdesc">Para quem ama uma vida ativa! Squeeze personalizado com itens para treino.</div>
+        <ul class="kinc"><h5>Inclui:</h5><li><i class="fa-solid fa-check"></i> 1 squeeze de alumínio 500ml</li><li><i class="fa-solid fa-check"></i> 1 toalha personalizada</li><li><i class="fa-solid fa-check"></i> Bolsa organizadora</li><li><i class="fa-solid fa-check"></i> Nome ou frase gravada</li></ul>
+        <div class="kfoot"><div><div class="kprice-lbl">A partir de</div><div class="kprice">R$ 99<small>,90</small></div></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20o%20Kit%20Fitness!" target="_blank" class="kbtn"><i class="fa-brands fa-whatsapp"></i> Pedir!</a></div></div>
+      </div>
+      <div class="kcard fi">
+        <div class="kimg-wrap"><img class="kimg" src="images/xicaras.webp" alt="Kit Família" loading="lazy"/><div class="kbadge kb4">Família 🏠</div></div>
+        <div class="kbody"><div class="kname">Kit Família Reunida 🏠</div><div class="kdesc">Celebre os momentos juntos! Xícaras personalizadas para cada membro da família.</div>
+        <ul class="kinc"><h5>Inclui:</h5><li><i class="fa-solid fa-check"></i> 4 a 6 xícaras personalizadas</li><li><i class="fa-solid fa-check"></i> Pires combinando</li><li><i class="fa-solid fa-check"></i> Caixa presente especial</li><li><i class="fa-solid fa-check"></i> Nome de cada membro</li></ul>
+        <div class="kfoot"><div><div class="kprice-lbl">A partir de</div><div class="kprice">R$ 139<small>,90</small></div></div><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20o%20Kit%20Família!" target="_blank" class="kbtn"><i class="fa-brands fa-whatsapp"></i> Pedir!</a></div></div>
+      </div>
+    </div>
+
+    <div class="kit-cta fi">
+      <h3>Quer um kit <em>100% do seu jeito?</em> 🎨</h3>
+      <p>Monte do zero — você escolhe os produtos, artes e embalagem!</p>
+      <a href="https://api.whatsapp.com/send?phone=5551981710049&text=Quero%20montar%20um%20kit%20personalizado!" target="_blank" class="cta-btn"><i class="fa-brands fa-whatsapp"></i> Criar Meu Kit!</a>
+    </div>
+  </section>
+
+  <!-- ══ CONTATO ══ -->
+  <section id="contato">
+    <div class="contact-hero fi">
+      <div class="chero-eye">💬 Fale conosco</div>
+      <h2 class="chero-title">Vamos criar algo<br><em>incrível juntos?</em> 🎨</h2>
+      <p class="chero-sub">Estamos prontos para transformar sua ideia num produto único! Entre em contato agora 🚀</p>
+    </div>
+
+    <div class="qcards">
+      <div class="qcard qc-wa fi"><div class="q-ico"><i class="fa-brands fa-whatsapp"></i></div><h3>WhatsApp 💬</h3><p>Atendimento rápido! Resposta em até 2 horas úteis.</p><a href="https://api.whatsapp.com/send?phone=5551981710049&text=Oi!%20Vim%20do%20site!" target="_blank" class="q-btn"><i class="fa-brands fa-whatsapp"></i> (51) 98171-0049</a></div>
+      <div class="qcard qc-em fi">
+    <div class="q-ico">
+        <i class="fa-solid fa-envelope"></i>
+    </div>
+    <h3>E-mail 📧</h3>
+    <p>Para orçamentos detalhados e envio de artes.</p>
+    
+    <a href="mailto:atendimento@apprezzo.com.br" class="q-btn">
+        <i class="fa-solid fa-envelope"></i> Enviar E-mail
+    </a>
+</div>
+      <div class="qcard qc-ig fi"><div class="q-ico"><i class="fa-brands fa-instagram"></i></div><h3>Instagram 📸</h3><p>Veja nossos trabalhos e inspire-se para o seu pedido!</p><a href="https://www.instagram.com/apprezzo_personalizados/" target="_blank" class="q-btn"><i class="fa-brands fa-instagram"></i> @apprezzo</a></div>
+    </div>
+
+    <div class="two-col">
+      <div class="info-box fi">
+        <div class="info-hdr"><h3>Fale com a <em class="apprezzo">Apprezzo!</em> 🌟</h3><p>Personalizamos com amor cada detalhe do seu pedido.</p></div>
+        <div class="info-body">
+          <div class="info-row"><div class="i-ico ii-wa"><i class="fa-brands fa-whatsapp"></i></div><div><h5>WhatsApp</h5><a href="https://api.whatsapp.com/send?phone=5551981710049" target="_blank">(51) 98171-0049</a></div></div>
+          <div class="info-row">
+    <div class="i-ico ii-em">
+        <i class="fa-solid fa-envelope"></i>
+    </div>
+    <div>
+        <h5>E-mail</h5>
+        <a href="mailto:atendimento@apprezzo.com.br">atendimento@apprezzo.com.br</a>
+    </div>
+</div>
+          <div class="info-row"><div class="i-ico ii-hr"><i class="fa-solid fa-clock"></i></div><div><h5>Horário ⏰</h5><span>Seg a Sex: 9h às 18h</span><span>Sábado: 9h às 13h</span></div></div>
+          <div class="info-row"><div class="i-ico ii-tr"><i class="fa-solid fa-truck"></i></div><div><h5>Entrega 🚚</h5><span>Porto Alegre e todo o Brasil</span><span>Correios e transportadoras</span></div></div>
+          <div class="info-soc">
+            <a href="https://www.instagram.com/apprezzo_personalizados/" target="_blank" class="is-ig"><i class="fa-brands fa-instagram"></i> Insta</a>
+            <a href="#" class="is-fb"><i class="fa-brands fa-facebook-f"></i> Face</a>
+            <a href="https://api.whatsapp.com/send?phone=5551981710049" target="_blank" class="is-wa"><i class="fa-brands fa-whatsapp"></i> Whats</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-box fi">
+        <div class="form-hdr"><h3>📋 Solicite seu orçamento!</h3><p>Preencheu? Já entramos em contato pelo WhatsApp 😊</p></div>
+        <div class="form-body">
+          <div class="frow">
+            <div class="fg"><label>👤 Nome</label><input type="text" id="fName" placeholder="Seu nome completo"/></div>
+            <div class="fg"><label>📱 WhatsApp</label><input type="tel" id="fPhone" placeholder="(51) 9 9999-9999"/></div>
+          </div>
+          <div class="fg"><label>📧 E-mail</label><input type="email" id="fEmail" placeholder="seu@email.com"/></div>
+          <div class="fg"><label>🎁 Produto de interesse</label>
+            <select id="fProduct">
+              <option value="">Selecione o produto...</option>
+              <option>Caneca Cerâmica</option><option>Caneca Mágica ✨</option><option>Caneca com Colher</option>
+              <option>Caneca de Alumínio</option><option>Caneca Interior Colorida</option><option>Caneca Alça Coração</option>
+              <option>Squeeze de Alumínio</option><option>Conjunto de Xícaras</option><option>Kit Personalizado 🎁</option><option>Outro</option>
+            </select>
+          </div>
+          <div class="fg"><label>📦 Quantidade</label>
+            <select id="fQty">
+              <option value="">Selecione a quantidade...</option>
+              <option>1 unidade</option><option>2 a 5 unidades</option><option>6 a 10 unidades</option>
+              <option>11 a 20 unidades</option><option>Mais de 20 unidades 🎉</option>
+            </select>
+          </div>
+          <div class="fg"><label>💬 Detalhes do pedido</label><textarea id="fMsg" placeholder="Tema, cores, foto ou frase! Quanto mais detalhes, melhor 😊"></textarea></div>
+          <button class="btn-send" id="btnSend"><i class="fa-brands fa-whatsapp"></i> Enviar via WhatsApp 🚀</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-sec fi">
+      <div class="sec-eye" style="color:var(--pink)">❓ Dúvidas frequentes</div>
+      <h2 class="sec-ttl">Perguntas & Respostas! 🙋</h2>
+      <div class="faq-grid">
+        <div class="faq-item"><div class="faq-q">Como funciona a personalização? <div class="faq-ico"><i class="fa-solid fa-plus"></i></div></div><div class="faq-a">Você nos envia a foto, frase ou logotipo. Criamos a arte e enviamos para aprovação antes de produzir. Só finalizamos com sua confirmação! 😊</div></div>
+        <div class="faq-item"><div class="faq-q">Qual o prazo de produção? <div class="faq-ico"><i class="fa-solid fa-plus"></i></div></div><div class="faq-a">Em média 3 a 5 dias úteis após aprovação da arte. Para pedidos acima de 10 unidades, consulte-nos! ⚡</div></div>
+        <div class="faq-item"><div class="faq-q">Entregam em todo o Brasil? 🚚 <div class="faq-ico"><i class="fa-solid fa-plus"></i></div></div><div class="faq-a">Sim! Enviamos para todo o Brasil via Correios e transportadoras. Frete calculado pelo destino e peso. 📦</div></div>
+        <div class="faq-item"><div class="faq-q">Tem pedido mínimo? <div class="faq-ico"><i class="fa-solid fa-plus"></i></div></div><div class="faq-a">Não! Aceitamos pedidos de uma única unidade. Para maiores quantidades temos preços especiais! 🎉</div></div>
+        <div class="faq-item"><div class="faq-q">Quais formas de pagamento? 💳 <div class="faq-ico"><i class="fa-solid fa-plus"></i></div></div><div class="faq-a">PIX, transferência bancária, cartão de crédito e débito. Para pedidos maiores, parcelamento disponível! 💰</div></div>
+        <div class="faq-item"><div class="faq-q">Posso enviar minha própria arte? 🎨 <div class="faq-ico"><i class="fa-solid fa-plus"></i></div></div><div class="faq-a">Sim! Aceitamos PNG, JPG ou PDF em alta resolução. Sem arte? Nossa equipe cria para você sem custo adicional! ✨</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="ftr">
+      <div>
+        <div class="flogo">Apprezzo<span>Personalizados</span></div>
+        <div class="fcopy">© <script>document.write(new Date().getFullYear())</script> <a href="#">Apprezzo Personalizados</a>. Todos os direitos reservados.</div>
+      </div>
+      <div class="fsoc">
+        <a href="https://www.instagram.com/apprezzo_personalizados/" target="_blank" class="fi"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="ff"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=5551981710049" target="_blank" class="fw"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /main -->
+
+<!-- Lightbox -->
+<div class="lbox" id="lbox">
+  <div class="lbox-inner">
+    <button class="lbox-close" id="lboxClose"><i class="fa-solid fa-xmark"></i></button>
+    <img id="lboxImg" src="" alt=""/>
+  </div>
+</div>
+
+<!-- Float WA -->
+<a href="https://api.whatsapp.com/send?phone=5551981710049&text=Vim%20do%20Site%20www.apprezzo.com.br" target="_blank" class="fwa"><i class="fa-brands fa-whatsapp"></i></a>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── Scroll Lock (iOS Safari compatible) ── */
+  var scrollY = 0;
+
+  function lockScroll() {
+    // Only lock on mobile (sidebar is only shown on ≤900px)
+    if (window.innerWidth > 900) return;
+    scrollY = window.scrollY;
+    document.body.style.top = '-' + scrollY + 'px';
+    document.body.classList.add('sb-open');
+  }
+
+  function unlockScroll() {
+    if (!document.body.classList.contains('sb-open')) return;
+    document.body.classList.remove('sb-open');
+    document.body.style.top = '';
+    // Restore scroll position silently (no animation jump)
+    window.scrollTo({ top: scrollY, behavior: 'instant' });
+  }
+
+  /* ── Sidebar ── */
+  var sb  = document.getElementById('sidebar');
+  var ov  = document.getElementById('sbOverlay');
+  var hbg = document.getElementById('hamburger');
+
+  function openSB() {
+    sb.classList.add('open');
+    ov.classList.add('show');
+    hbg.classList.add('open');
+    lockScroll();
+  }
+
+  function closeSB() {
+    sb.classList.remove('open');
+    ov.classList.remove('show');
+    hbg.classList.remove('open');
+    unlockScroll();
+  }
+
+  hbg.addEventListener('click', function () {
+    sb.classList.contains('open') ? closeSB() : openSB();
+  });
+  ov.addEventListener('click', closeSB);
+
+  /* Close sidebar when nav link clicked on mobile */
+  document.querySelectorAll('.sb-nav a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.innerWidth <= 900) closeSB();
+    });
+  });
+
+  /* ── Slider ── */
+  var slides = document.querySelectorAll('.slide');
+  var dots   = document.querySelectorAll('.sdot');
+  var cur = 0, timer;
+
+  function goTo(n) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+  }
+
+  function resetTimer() { clearInterval(timer); timer = setInterval(function () { goTo(cur + 1); }, 5000); }
+
+  dots.forEach(function (d) { d.addEventListener('click', function () { goTo(+d.dataset.i); resetTimer(); }); });
+  document.getElementById('sliderPrev').addEventListener('click', function () { goTo(cur - 1); resetTimer(); });
+  document.getElementById('sliderNext').addEventListener('click', function () { goTo(cur + 1); resetTimer(); });
+
+  /* Swipe */
+  var tx = 0;
+  var slEl = document.querySelector('.slider');
+  slEl.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
+  slEl.addEventListener('touchend', function (e) {
+    var diff = tx - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { goTo(diff > 0 ? cur + 1 : cur - 1); resetTimer(); }
+  }, { passive: true });
+
+  resetTimer();
+
+  /* ── Filter ── */
+  document.querySelectorAll('.fbtn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.fbtn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var f = btn.dataset.f;
+      document.querySelectorAll('.pcard').forEach(function (c) {
+        c.style.display = (f === 'all' || c.dataset.cat === f) ? '' : 'none';
+      });
+    });
+  });
+
+  /* Sidebar category links */
+  document.querySelectorAll('[data-cat]').forEach(function (lnk) {
+    lnk.addEventListener('click', function (e) {
+      e.preventDefault();
+      var f = lnk.dataset.cat;
+      document.querySelectorAll('.pcard').forEach(function (c) {
+        c.style.display = (c.dataset.cat === f) ? '' : 'none';
+      });
+      /* Also set active filter button */
+      document.querySelectorAll('.fbtn').forEach(function (b) {
+        b.classList.toggle('active', b.dataset.f === f);
+      });
+      /* Scroll to products */
+      document.getElementById('produtos').scrollIntoView({ behavior: 'smooth' });
+      if (window.innerWidth <= 900) closeSB();
+    });
+  });
+
+  /* ── Shuffle products ── */
+  var grid  = document.getElementById('pgrid');
+  var cards = Array.prototype.slice.call(grid.children);
+  for (var i = cards.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    grid.appendChild(cards[j]);
+  }
+
+  /* ── Countdown ── */
+  function tick() {
+    var now = new Date(), end = new Date(now);
+    end.setHours(23, 59, 59, 999);
+    var d = end - now;
+    var h = Math.floor(d / 3600000), m = Math.floor((d % 3600000) / 60000), s = Math.floor((d % 60000) / 1000);
+    document.getElementById('cdH').textContent = String(h).padStart(2, '0');
+    document.getElementById('cdM').textContent = String(m).padStart(2, '0');
+    document.getElementById('cdS').textContent = String(s).padStart(2, '0');
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* ── FAQ ── */
+  document.querySelectorAll('.faq-q').forEach(function (q) {
+    q.addEventListener('click', function () {
+      var item = q.parentElement, wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('open'); });
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  /* ── WhatsApp form ── */
+  document.getElementById('btnSend').addEventListener('click', function () {
+    var name    = document.getElementById('fName').value.trim();
+    var phone   = document.getElementById('fPhone').value.trim();
+    var product = document.getElementById('fProduct').value;
+    var qty     = document.getElementById('fQty').value;
+    var msg     = document.getElementById('fMsg').value.trim();
+    if (!name)  { alert('Por favor, informe seu nome! 😊'); return; }
+    if (!phone) { alert('Por favor, informe seu WhatsApp! 📱'); return; }
+    var text = 'Olá, Apprezzo! 🎨\n\n'
+      + '👤 *Nome:* ' + name + '\n'
+      + '📱 *Telefone:* ' + phone + '\n'
+      + '🎁 *Produto:* ' + (product || 'Não informado') + '\n'
+      + '📦 *Quantidade:* ' + (qty || 'Não informado') + '\n'
+      + '💬 *Detalhes:* ' + (msg || 'Sem detalhes') + '\n\n'
+      + 'Vim do site www.apprezzo.com.br';
+    window.open('https://api.whatsapp.com/send?phone=5551981710049&text=' + encodeURIComponent(text), '_blank');
+  });
+
+  /* ── Lightbox ── */
+  window.openLB = function (src) {
+    document.getElementById('lboxImg').src = src;
+    document.getElementById('lbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  function closeLB() {
+    document.getElementById('lbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('lboxClose').addEventListener('click', closeLB);
+  document.getElementById('lbox').addEventListener('click', function (e) { if (e.target === document.getElementById('lbox')) closeLB(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLB(); });
+
+  /* ── Active nav highlight on scroll ── */
+  var sections = ['inicio', 'produtos', 'promocoes', 'kits', 'contato'];
+  var navLinks = document.querySelectorAll('.sb-nav a[href^="#"]');
+
+  window.addEventListener('scroll', function () {
+    var scrollY = window.scrollY + 120;
+    var active = 'inicio';
+    sections.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollY) active = id;
+    });
+    navLinks.forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + active);
+    });
+  }, { passive: true });
+
+  /* ── Fade-in on scroll ── */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry, idx) {
+      if (entry.isIntersecting) {
+        setTimeout(function () { entry.target.classList.add('vis'); }, idx * 60);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fi').forEach(function (el) { io.observe(el); });
+
+}());
+</script>
+</body>
+</html>
