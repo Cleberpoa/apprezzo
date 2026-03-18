@@ -263,8 +263,16 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #fff;
-  font-family: var(--fh);
+
+  /* 🔥 fundo branco semi-transparente */
+  background: rgba(255, 255, 255, 0.90); /* 0.0 = invisível, 1.0 = sólido */
+
+  /* ✨ vidro fosco (opcional, fica bonito em slider) */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+
+   font-family: var(--fh);
   font-weight: 900;
   font-size: .82rem;
   padding: 10px 20px;
@@ -272,7 +280,11 @@
   box-shadow: 0 4px 14px rgba(0,0,0,.18);
   transition: all .2s;
 }
-.slide-btn:hover { transform: translateY(-2px) scale(1.03); }
+
+.slide-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  background: rgba(255, 255, 255, 0.70); /* clareia no hover */
+}
 
 .slider-dots {
   position: absolute;
@@ -329,16 +341,10 @@
 }
 
 
-  /* 📱 melhora leitura no mobile */
-  .slide-body {
-    max-width: 100%;
-    padding: 20px;
-  }
 	/* 📱 CORREÇÃO FAIXA NO MOBILE */
 @media (max-width: 900px) {
 
   .slide-ov {
-    /* 🔥 volta para degradê vertical mais suave */
     background: linear-gradient(
       to top,
       rgba(0,0,0,0.75) 0%,
@@ -348,20 +354,19 @@
   }
 
   .slide-body {
-    /* ❌ remove o segundo degradê que causa a faixa */
-     background: linear-gradient(
+    background: linear-gradient(
       to top,
       rgba(0,0,0,0.75) 0%,
       rgba(0,0,0,0.6) 50%,
       transparent 100%
     );
-
     max-width: 100%;
     padding: 20px;
   }
 
 }
-}
+
+
     /* ══════════════════════════════════════
        PRODUTOS
     ══════════════════════════════════════ */
